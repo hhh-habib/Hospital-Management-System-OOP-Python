@@ -16,6 +16,29 @@ A simple object-oriented hospital management system that supports inpatient and 
 - Python 3.8 or newer
 - No external Python packages required
 
+## Class Diagram
+
+```mermaid
+classDiagram
+
+Person <|-- Patient
+Person <|-- Doctor
+
+Patient <|-- InPatient
+Patient <|-- OutPatient
+
+Doctor <|-- SpecialistDoctor
+
+Hospital --> Patient
+Hospital --> Doctor
+Hospital --> Appointment
+Hospital --> Prescription
+
+Patient --> Appointment
+Patient --> Prescription
+Doctor --> Appointment
+Doctor --> Prescription
+```
 ## Setup
 
 1. Install Python 3.8+ if needed.

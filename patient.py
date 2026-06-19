@@ -21,13 +21,24 @@ class Patient(Person, ABC):
 
     def view_history(self):
        return self._appointments
-    
+     
     def add_prescription(self, prescription):
        self._prescriptions.append(prescription)
 
     def view_prescriptions(self):
        return self._prescriptions
-    
+
+    def to_dict(self):
+       return {
+           'patient_type': self.__class__.__name__,
+           'name': self._name,
+           'age': self._age,
+           'phone': self._phone,
+           'patient_id': self._patient_id,
+           'medical_history': self._medical_history,
+           'has_insurance': self._has_insurance
+       }
+     
     def __gt__(self, other):
        return self.calculate_bill() > other.calculate_bill()
 

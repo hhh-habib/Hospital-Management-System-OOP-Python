@@ -23,6 +23,15 @@ class SpecialistDoctor(Doctor):
                 f"Specialization: {self._specialization}, "
                 f"Consultation Fee: {self._consultation_fee}")
 
+    def to_dict(self):
+        data = super().to_dict()
+        data.update({
+            'doctor_type': 'SpecialistDoctor',
+            'specialization': self._specialization,
+            'consultation_fee': self._consultation_fee
+        })
+        return data
+
     def __str__(self):
         return self.display_info()
 

@@ -40,6 +40,25 @@ class Appointment:
                 f"Date: {self._appointment_date}, "
                 f"Status: {self._appointment_status}")
 
+    def to_dict(self):
+        return {
+            'appointment_id': self._appointment_id,
+            'patient_id': self._patient._patient_id,
+            'doctor_id': self._doctor._doctor_id,
+            'appointment_date': self._appointment_date,
+            'appointment_status': self._appointment_status
+        }
+
+    @classmethod
+    def from_dict(cls, data, patient, doctor):
+        return cls(
+            data['appointment_id'],
+            patient,
+            doctor,
+            data['appointment_date'],
+            data.get('appointment_status', 'pending')
+        )
+
     def __str__(self):
         return self.get_details()
 

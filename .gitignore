@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+.env
+.env.*
+.vscode/
+*.egg-info/
+
+# Runtime JSON persistence files
+patients.json
+doctors.json
+appointments.json
+prescriptions.json

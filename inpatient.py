@@ -17,3 +17,11 @@ class InPatient(Patient):
             total = total * 0.8   
 
         return total
+
+    def to_dict(self):
+        data = super().to_dict()
+        data.update({
+            'days': self._days,
+            'daily_rate': self._daily_rate
+        })
+        return data

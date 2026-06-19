@@ -17,3 +17,11 @@ class OutPatient(Patient):
             total = total * 0.8
 
         return total
+
+    def to_dict(self):
+        data = super().to_dict()
+        data.update({
+            'visits': self._visits,
+            'visit_fee': self._visit_fee
+        })
+        return data

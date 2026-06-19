@@ -47,10 +47,7 @@ Doctor --> Prescription
    python -m venv venv
    source venv/bin/activate  # Windows: venv\Scripts\activate
    ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+
 
 ## Run
 
@@ -78,3 +75,4 @@ Run unit tests with:
 ```bash
 python -m unittest discover -s . -p "test_*.py"
 ```
+

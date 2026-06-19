@@ -2,6 +2,7 @@ from hospital import Hospital
 from inpatient import InPatient
 from outpatient import OutPatient
 from doctor import Doctor
+from specialist_doctor import SpecialistDoctor
 
 h = Hospital()
 
@@ -55,17 +56,27 @@ while True:
 
     elif choice == "3":
 
-        name = input("Name: ")
-        age = int(input("Age: "))
-        phone = input("Phone: ")
-        did = input("Doctor ID: ")
-        spec = input("Specialty: ")
-        fee = float(input("Fee: "))
+       print("1. Add Regular Doctor")
+       print("2. Add Specialist Doctor")
+       doc_choice = input("Enter choice: ")
 
-        d = Doctor(name, age, phone, did, spec, fee)
-        h.add_doctor(d)
+       name = input("Name: ")
+       age = int(input("Age: "))
+       phone = input("Phone: ")
+       did = input("Doctor ID: ")
+       spec = input("Specialty: ")
+       fee = float(input("Fee: "))
 
-        print("Doctor added successfully")
+       if doc_choice == "2":
+           specialization = input("Specialization: ")
+           consultation_fee = float(input("Consultation Fee: "))
+           d = SpecialistDoctor(name, age, phone, did, spec, fee, specialization, consultation_fee)
+       else:
+           d = Doctor(name, age, phone, did, spec, fee)
+
+       h.add_doctor(d)
+
+       print("Doctor added successfully")
 
 
 

@@ -10,6 +10,7 @@ class Patient(Person, ABC):
         self._medical_history = medical_history
         self._has_insurance = has_insurance
         self._appointments = []
+        self._prescriptions = []
 
     @abstractmethod
     def calculate_bill(self):
@@ -20,6 +21,12 @@ class Patient(Person, ABC):
 
     def view_history(self):
        return self._appointments
+    
+    def add_prescription(self, prescription):
+       self._prescriptions.append(prescription)
+
+    def view_prescriptions(self):
+       return self._prescriptions
     
     def __gt__(self, other):
        return self.calculate_bill() > other.calculate_bill()

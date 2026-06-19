@@ -1,4 +1,5 @@
 from exceptions import PatientNotFoundError
+from appointment import Appointment
 
 class Hospital:
     def __init__(self):
@@ -36,13 +37,11 @@ class Hospital:
         patient = self.find_patient(patient_id)
         doctor = self.find_doctor(doctor_id)
 
-        appointment = (patient, doctor)
+        appointment = Appointment(len(self._appointments) + 1, patient, doctor, "2025-01-15")
         self._appointments.append(appointment)
 
         # Feature - appointment history
-
         patient.add_appointment(appointment)
-
 
         return f"Appointment booked successfully"
     
